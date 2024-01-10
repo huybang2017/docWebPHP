@@ -1,10 +1,14 @@
 # WEB nâng cao
 
-## setup: xampp + vsc
+## setup: xampp + vsc:
 
 - [link tham khảo](https://www.youtube.com/watch?v=MZJR0LzRfVg&list=PL88QwC-jiH9ByYqO0mVStNEHB6QT24yx1&index=4)
-
 - [cách thêm project vào xampp](https://www.youtube.com/watch?v=yEh_EqVTVbc&list=PL88QwC-jiH9ByYqO0mVStNEHB6QT24yx1&index=5)
+
+## tài liệu tham khảo:
+
+- [w3c](https://www.w3schools.com/php/default.asp)
+- [kênh youtube](https://www.youtube.com/@hienuTech)
 
 ## Bài 1: hằng số
 
@@ -38,7 +42,7 @@ const WEB_NAME = "web Huy";
 // echo trong PHP mục đích là để xuất dữ liệu ra màn hình
 // Hằng số khi xuất ra màn hình thì không sử dụng chuỗi trực tiếp được
 echo "số pi là : $_PI"; // lỗi
-echo "số pi là : " . _PI . "</br>"; // đúng cú pháp
+echo "số pi là : " .$_PI . "</br>"; // đúng cú pháp
 echo WEB_NAME; // đúng cú pháp
 ```
 
@@ -51,4 +55,172 @@ echo WEB_NAME; // đúng cú pháp
 - kiểu String(kiểu chuỗi)
 - kiểu boolean(true or false)
 - kiểu Array
+- kiểu Obj
 - kiểu NULL
+
+## Bài 3: toán tử trong PHP
+
+### biểu thức: tập hợp các toán tử và toán hạng
+
+- toán hạng: các biến hay các giá trị: a+b
+- toán tử: các phép toán: cộng trừ nhân chia
+
+### toán tử gán: =,+=,-=,\*=,/=,%=,.=
+
+- mọi thứ đều rất quen thuộc rồi chỉ có 1 thắc mắc .= là gì ???
+- toán tử .= được sử dụng để nối giá trị của một biến với một giá trị khác và lưu trữ kết quả vào chính biến đó
+
+```PHP
+$var = "10";
+$var .= " 5";
+echo $var; // 105 kiểu number
+
+$a = "hello";
+$a .= " 123";
+echo $var; // hello123 kiểu string
+```
+
+### toán tử số học: +,-,\*,/,%,\*\*,--,++
+
+### toán tử so sánh: >,<,<=,>=,==,===,!=
+
+- sự khác nhau giữa 2 toán tử so sánh: == và === ???
+- tương tự như js: == là so sánh các dữ liệu không đồng nhất ví dụ (kiểu num == string => true) ngược lại với === thì không có chuyện đó -> lời khuyên dùng nên sử dụng toán tử so sánh: ===
+
+```PHP
+$var1 = 5;
+$var2 = "5";
+
+// Sử dụng toán tử ==
+if ($var1 == $var2) {
+    echo "Giá trị bằng nhau";
+} else {
+    echo "Giá trị không bằng nhau";
+}
+
+// Sử dụng toán tử ===
+if ($var1 === $var2) {
+    echo "Giá trị và kiểu dữ liệu đồng nhất";
+} else {
+    echo "Giá trị hoặc kiểu dữ liệu không đồng nhất";
+}
+```
+
+### toán tử luân lý: ||,&&,!
+
+- mọi thứ vẫn rất quen thuộc nhưng ! có thể vẫn lạ với 1 số bạn
+- vdu luôn cho dễ hiểu
+
+```PHP
+$condition = true;
+if (!$condition) {
+    echo "Biểu thức là false";
+} else {
+    echo "Biểu thức là true";
+}
+```
+
+## bài 4: các câu lệnh: rẽ nhánh(if-else,switch) và vòng lặp(for,while,doWhile)
+
+### if-else
+
+```PHP
+$score = 75;
+if ($score >= 90) {
+    echo "Điểm A";
+} elseif ($score >= 80) {
+    echo "Điểm B";
+} elseif ($score >= 70) {
+    echo "Điểm C";
+} else {
+    echo "Điểm D";
+}
+```
+
+### switch case
+
+```PHP
+$dayOfWeek = "Monday";
+switch ($dayOfWeek) {
+    case "Monday":
+        echo "Hôm nay là thứ Hai.";
+        break;
+    case "Tuesday":
+        echo "Hôm nay là thứ Ba.";
+        break;
+    case "Wednesday":
+        echo "Hôm nay là thứ Tư.";
+        break;
+    case "Thursday":
+        echo "Hôm nay là thứ Năm.";
+        break;
+    case "Friday":
+        echo "Hôm nay là thứ Sáu.";
+        break;
+    case "Saturday":
+        echo "Hôm nay là thứ Bảy.";
+        break;
+    case "Sunday":
+        echo "Hôm nay là Chủ Nhật.";
+        break;
+    default:
+        echo "Không xác định ngày.";
+}
+```
+
+### vòng lặp for
+
+```PHP
+for ($i = 1; $i <= 5; $i++) {
+    echo $i . " ";
+}
+```
+
+### vòng lặp while
+
+```PHP
+$colors = ["Red", "Green", "Blue"];
+$count = count($colors);
+$i = 0;
+
+while ($i < $count) {
+    echo $colors[$i] . " ";
+    $i++;
+}
+```
+
+### vòng lặp do while
+
+```PHP
+$i = 1;
+
+do {
+    echo $i . " ";
+    $i++;
+} while ($i <= 5);
+```
+
+### lưu ý về phần break,continue,exit,die
+
+- break: buộc thoát khỏi vòng lặp
+- continue: nhảy qua vòng lặp kế tiếp
+- die và exit: dừng cả chương trình phía dưới
+- -> die và exit các dùng cũng tương tự như khi ta sử dụng return, không có sự khác nhau về die và exit
+
+```PHP
+$age = 15;
+if ($age < 18) {
+    die("Bạn chưa đủ tuổi để truy cập trang này.");
+} else {
+    echo "Chào mừng bạn đến trang web!";
+    // Các câu lệnh tiếp theo...
+}
+$score = 50;
+
+if ($score < 60) {
+    exit("Bạn đã không đạt điểm đỗ.");
+} else {
+    echo "Chúc mừng! Bạn đã đỗ.";
+    // Các câu lệnh tiếp theo...
+}
+```
