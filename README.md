@@ -224,3 +224,82 @@ if ($score < 60) {
     // Các câu lệnh tiếp theo...
 }
 ```
+
+## Các câu lệnh về include - include_once - require - require_once
+
+### include: hàm include sử dụng để nhập lại nội dung của 1 file từ 1 file khác -> tái sử dụng code , tạo các module độc lập
+
+```PHP
+include('import1.php');
+include('import2.php');
+```
+
+### sự khác nhau giữa include và include_once:
+
+```PHP
+// hàm include sử dụng để nhập lại nội dung của 1 file từ 1 file khác -> tái sử dụng code , tạo các module độc lập
+include('import1.php');
+include('import1.php');
+// hàm include_once sử dụng và tác dụng tương tự như include những sự khác nhau của include_once chỉ import được 1 lần
+include_once('import1.php');
+include_once('import1.php');
+```
+
+### phần require,require_once cũng tương tự như phần include nhưng sự khác nhau giữa 2 phần:
+
+- include: nếu import lỗi, thì phần code phía dưới vẫn sẽ chạy
+- require: nếu import lỗi thì phần code phía dưỡi sẽ ngừng
+
+```PHP
+// giả sử 2 phần import bị lỗi và comment 1 trong 2 cách import
+include ('import.php'); // chương trình vân được chạy
+require "import.php" // chương trình đã ngừng
+echo "chương trình vẫn được chạy";
+```
+
+## Bài 6: Toán tử ngôi ba và các cú pháp thay thế trong PHP
+
+### toán tử ngôi ba:
+
+```PHP
+// toán tử ngôi ba
+$a = -10;
+echo ($a < 0) ? "Biến a âm" : "Biến a dương";
+```
+
+### cú pháp thay thế trong if else:
+
+```PHP
+// thay thế {} thành : - endif
+<?php
+$a = -10;
+
+if ($a < 0) :
+?>
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+        <li>item 4</li>
+    </ul>
+<?php
+else :
+    echo "Biến a dương";
+endif;
+```
+
+### cú pháp thay thế trong for
+
+```PHP
+// tương tự như thay thế trong if else
+for ($i = 0; $i < 10; $i++) :
+?>
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+        <li>item 4</li>
+    </ul>
+<?php
+endfor;
+```
