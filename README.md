@@ -341,4 +341,36 @@ $length = strlen("tôi là huy");
 echo $length;
 ```
 
+### hàm str_repeat: lặp chuỗi với số lần -> có 2 tham số truyền vào:
+
+- tham số 1: 1 chuỗi cần lặp(string)
+- tham số 2: số lần lặp
+
+```php
+echo str_repeat("huy", 3) . "</br>";
+```
+
+### hàm str_replace: tìm chuỗi và thay thế -> có 4 tham số truyền vào:
+
+- tham số 1: ký tự hoặc là chuỗi cần được thay thế trong 1 chuỗi
+- tham số 2: ký tự hoặc là chuỗi mới khi thay thế trong 1 chuỗi
+- tham số 3: chuỗi được thay thé
+- tham số 4: tạo 1 biến để đếm số lần thay thế trong 1 chuỗi
+
+```php
+$chuoi3 = str_replace(".", "|", $chuoi2, $count);
+echo "$chuoi3 $count </br>";
+```
+
+### hàm md5: hàm mã hóa chuỗi theo -> có 2 tham số truyền vào:
+
+- tham số 1: chuỗi cần mã hóa
+- tham số 2: giá trị bool: true thì mã hóa binary false thì mã hóa hex
+- -> document của php khuyến cáo việc sử dụng md5 để mã hóa password là không nên, bởi về nó rất dễ tấn công bằng rainbow table(tự tìm hiểu thêm)
+- \*\*Solution: bcrypt, Argon2, hoặc SHA-256 còn tìm hiểu sâu hơn nữa thì tới doc php chính ở phần dưới bình luận có khá nhiều các kêt quả trong việc hash password
+
+```php
+echo md5("123456", true) . "</br>";
+```
+
 # ---------------------------- END ------------------------------
