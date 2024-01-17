@@ -248,7 +248,7 @@ include_once('import1.php');
 ### phần require,require_once cũng tương tự như phần include nhưng sự khác nhau giữa 2 phần:
 
 - include: nếu import lỗi, thì phần code phía dưới vẫn sẽ chạy
-- require: nếu import lỗi thì phần code phía dưỡi sẽ ngừng
+- require: nếu import lỗi thì phần code phía dưới sẽ ngừng
 
 ```php
 // giả sử 2 phần import bị lỗi và comment 1 trong 2 cách import
@@ -371,6 +371,40 @@ echo "$chuoi3 $count </br>";
 
 ```php
 echo md5("123456", true) . "</br>";
+```
+
+### hàm htmlentities: chuyển các thẻ html sang dạng chuỗi -> có thể in thẻ html ra màn hình -> có 1 tham số
+
+```php
+echo htmlentities("<h1>tôi là huy</h1>");
+```
+
+### hàm strip_tags: hàm bỏ đi các thẻ html có trong chuỗi -> có 2 tham số:
+
+- tham số 1: chuỗi có thẻ html
+- tham số 2: khi báo ở dạng string/array ở tham số này khi khai báo ta sẽ cho phép chuỗi đó được quyền sử dụng thẻ html đó mà không bị chuyển nếu không có thì default sẽ chuyển tất cả
+
+```php
+echo strip_tags("<h1>đây là h1</h1> </br> <h2>đây là h2</h2>", "<h2>");
+```
+
+### hàm substr: lấy chuỗi con từ vị trí start với độ dài length -> có 3 tham số:
+
+- tham số 1: chuỗi cần cắt
+- tham số 2: vị trí bắt đầu cắt
+- tham số 3: độ dài mảng tương ứng nếu không có thì sẽ bằng độ dài chuỗi cha
+
+```php
+echo substr("Nguyễn Đức Huy", 4, 5) . "</br>";
+```
+
+### hàm strstr: tách 1 chuỗi từ ký tự cho trước choi đến hết -> có 2 tham số:
+
+- tham số 1: chuỗi cần cắt
+- tham số 2: vị trí ký tự hoặc chuỗi bắt đầu cắt và cắt cho đến hết
+
+```php
+echo strstr("Nguyễn Đức Huy", "n");
 ```
 
 # ----------------------------- END -----------------------------

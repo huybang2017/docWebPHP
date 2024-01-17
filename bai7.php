@@ -25,3 +25,18 @@ echo md5("123456", true) . "</br>";
 
 // hàm sha1: hàm mã hóa 1 chuỗi gồm 40 ký tự tương tự như md5
 echo sha1("123456") . "</br>";
+
+// hàm htmlentities: chuyển các thẻ html sang dạng chuỗi -> có thể in thẻ html ra màn hình
+echo htmlentities("<h1>tôi là huy</h1>");
+
+// hàm html_entity_decode: chuyển từ dạng chuỗi sang dạng html trình duyệt có thể biên dịch html được
+echo html_entity_decode("<h1>tôi là huy</h1>");
+
+// hàm strip_tags: hàm bỏ đi các thẻ html có trong chuỗi
+echo strip_tags("<h1>đây là h1</h1> </br> <h2>đây là h2</h2>", "<h2>");
+
+// hàm substr: lấy chuỗi con từ vị trí start với độ dài length
+echo substr("Nguyễn Đức Huy", 4, 5) . "</br>";
+
+// hàm strstr: tách 1 chuỗi từ ký tự cho trước choi đến hết
+echo strstr("Nguyễn Đức Huy", "n");
