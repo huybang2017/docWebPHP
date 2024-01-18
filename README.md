@@ -407,4 +407,33 @@ echo substr("Nguyễn Đức Huy", 4, 5) . "</br>";
 echo strstr("Nguyễn Đức Huy", "n");
 ```
 
+## isset và empty
+
+### isset:
+
+- kiểm tra biến có tồn tại hay không
+- không kiếm tra kiểu dữ liệu của biến
+- không kiếm tra được trường hợp null
+
+```php
+if (isset($bien1)) {
+    echo $bien1;
+}
+```
+
+### empty:
+
+- kiểm tra biến đó có tồn tại không và kiểu dữ liệu
+- chỉ trả về kiểu dữ liệu boolean
+- trả về true nếu: không tồn tại hoặc rỗng, =0,"0",trống,null,array rỗng,obj rỗng,false
+
+```php
+$bien2 = 0;
+if (!empty($bien2)) {
+    echo $bien2;
+} else {
+    echo "không hợp lệ";
+}
+```
+
 # ----------------------------- END -----------------------------
